@@ -24,6 +24,7 @@
                 align-items: center;
                 width: 100%;
                 height: 100vh;
+                overflow: hidden;
             }
 
             .testimonial-carousel {
@@ -34,7 +35,7 @@
                 padding: 40px 0;
                 display: flex;
                 align-items: center;
-                min-height: 350px; /* ensure enough height for arrows */
+                min-height: 350px;
             }
             
             .arrow {
@@ -60,13 +61,14 @@
             .carousel-track {
                 display: flex;
                 transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-                gap: 20px;
+                gap: 2vw;
+                width: 100%;
             }
             
             .testimonial {
                 position: relative;
                 height: 300px;
-                flex: 0 0 300px;
+                flex: 0 0 25%;
                 transition:
                     flex 0.6s cubic-bezier(0.77, 0, 0.175, 1),
                     filter 0.6s cubic-bezier(0.77, 0, 0.175, 1),
@@ -76,18 +78,30 @@
                 transform: scale(0.9);
                 opacity: 0;
                 z-index: 1;
-                filter: brightness(0.3);
-                background-image: url("https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/300e406c-dfab-46b2-beef-04d970a1d600/elijah-ekdahl-8XxF2kYHIgo-unsplash.jpg?content-type=image%2Fjpeg");
+                filter: brightness(0.3) grayscale(1);
+                background-image: url("https://www.providencefrisco.com/wp-content/uploads/2024/02/Worship2-3.png");
                 background-size: cover;
                 background-position: center;
             }
+
+            .testimonial::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+                border-radius: 20px;
+                z-index: 1;
+            }
             
             .testimonial.active {
-                flex: 0 0 400px;
+                flex: 0 0 50%;
                 opacity: 1;
                 transform: scale(1);
                 z-index: 2;
-                filter: brightness(1);
+                filter: brightness(1) grayscale(1);
                 transition:
                     flex 0.6s cubic-bezier(0.77, 0, 0.175, 1),
                     filter 0.6s cubic-bezier(0.77, 0, 0.175, 1),
@@ -96,7 +110,7 @@
             }
             
             .testimonial.left, .testimonial.right {
-                flex: 0 0 300px;
+                flex: 0 0 25%;
                 opacity: 1;
                 z-index: 1;
                 transition:
@@ -118,6 +132,7 @@
                 color: white;
                 padding: 15px;
                 text-align: left;
+                z-index: 2;
             }
             
             .testimonial.active .testimonial-text {
@@ -152,25 +167,25 @@
                     testimonials[index].classList.add('active');
                     testimonials[next].classList.add('right');
 
-                    // Calculate widths for all cards (active card is wider)
-                    let widths = testimonials.map((t, i) => (i === index ? 400 : 300));
-                    let gaps = 20;
-
-                    // Calculate the left edge of the active card's center
-                    let left = 0;
-                    for (let i = 0; i < index; i++) {
-                        left += widths[i] + gaps;
-                    }
-                    left += widths[index] / 2;
-
-                    // Calculate total width of the track
-                    const totalWidth = widths.reduce((sum, w) => sum + w, 0) + gaps * (testimonials.length - 1);
-
-                    // Center the active card
                     const carousel = document.querySelector('.testimonial-carousel');
                     const carouselWidth = carousel.offsetWidth;
-                    const offset = carouselWidth / 2 - left;
+                    const gap = carouselWidth * 0.02; // 2vw gap
+                    const sideWidth = carouselWidth * 0.25;
+                    const activeWidth = carouselWidth * 0.50;
+
+                    // Calculate left offset to center the active card
+                    let left = 0;
+                    for (let i = 0; i < index; i++) {
+                        left += (i === (index - 1) ? sideWidth : sideWidth) + gap;
+                    }
+                    left += activeWidth / 2;
+
+                    // Total width of the track
+                    const totalWidth = (sideWidth * (testimonials.length - 1)) + activeWidth + gap * (testimonials.length - 1);
                     track.style.width = totalWidth + 'px';
+
+                    // Center the active card
+                    const offset = carouselWidth / 2 - left;
                     track.style.transform = `translateX(${offset}px)`;
                 }
 
@@ -183,6 +198,8 @@
                     index = (index + 1) % testimonials.length;
                     updateCarousel();
                 });
+
+                window.addEventListener('resize', updateCarousel);
 
                 updateCarousel();
             });

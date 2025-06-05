@@ -6,7 +6,7 @@
 
   .testimonial-container {
     width: 100%;
-    height: 250px;
+    height: 400px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -52,12 +52,12 @@
     top: 0;
     left: 30%;
     height: 100%;
-    padding: 20px 5%;
+    padding: 0 5%;
     color: white;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     background: transparent;
     opacity: 1;
@@ -67,9 +67,29 @@
     pointer-events: auto;
   }
 
-  .testimonial-container:hover {
-    height: 450px;
+  .testimonial-services-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 0 5%;
+    opacity: 0;
+    color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+    transition:
+      opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    pointer-events: auto;
   }
+/*
+.testimonial-container:hover {
+  height: 450px;
+}
+*/
 
   .testimonial-container:hover .testimonial-image-border {
     width: 100%;
@@ -82,13 +102,12 @@
   }
 
   .testimonial-container:hover .testimonial-content {
-    left: 0;
     color: white;
     z-index: 2;
   }
 
-  .testimonial-container:hover .testimonial-content p {
-    color: white;
+  .testimonial-container:hover .testimonial-services-content {
+    opacity: 1;
   }
 
   .testimonial-content h2 {
@@ -103,6 +122,26 @@
     font-size: 20px;
     color: #c7c7c7;
     transition: color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-services-content h2 {
+    color: white;;
+    margin-bottom: 10px;
+    font-size: 40px;
+    transition: color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-services-content ul {
+    margin-top: 10px;
+    font-size: 20px;
+    list-style: none;
+    padding: 0;
+    color: #c7c7c7;
+    transition: color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-services-content li {
+    padding: 10px 0;
   }
 
   @media (max-width: 900px) {
@@ -166,5 +205,13 @@
     <h2>Providence Church | Frisco, TX</h2>
     <p>
       “It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.”    </p>
+  </div>
+  <div class="testimonial-services-content">
+    <h2>Services</h2>
+    <ul>
+      <li>A/V Management</li>
+      <li>Lighting Programming</li>
+      <li>Volunteer Training</li>
+    </ul>
   </div>
 </div>

@@ -1,88 +1,127 @@
 <style>
   body {
     background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
-  .audio-header-container {
+  .testimonial-container {
     width: 100%;
-    height: 350px;
+    height: 250px;
     padding: 0;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    transition: height 0.6s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
-  .audio-header-image {
+  .testimonial-image-border {
     border-radius: 20px;
     border: 1px solid gray;
     width: 30%;
-    min-width: 200px;
     height: 100%;
-    display: block;
-    filter: grayscale(1);
-    background: url('https://www.providencefrisco.com/wp-content/uploads/2024/02/Worship2-3.png');
-    background-size: cover;
-    background-position: center;
     box-shadow: 0 0 50px black;
-    transition: width 0.6s cubic-bezier(0.77, 0, 0.175, 1), transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    flex-shrink: 0;
+    box-sizing: border-box;
+    background: transparent;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    position: relative;
     z-index: 1;
+    transition:
+      width 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    flex-shrink: 0;
   }
 
-  .audio-header-content {
+  .testimonial-image {
+    border-radius: 18px;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url('https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/1981c585-7de7-4d85-8c3d-6a123c4c8227/ProvidenceCOVER.jpg?content-type=image%2Fjpeg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(0) brightness(1) blur(0);
+    transition:
+      filter 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+      transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-content {
     position: absolute;
     top: 0;
     left: 30%;
-    width: 70%;
     height: 100%;
-    padding: 40px;
+    padding: 20px 5%;
     color: white;
     z-index: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    transition: opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-    pointer-events: none;
-  }
-
-  .audio-header-container:hover .audio-header-image {
-    width: 100%;
-    z-index: 1;
-  }
-
-  .audio-header-container:hover .audio-header-content {
+    background: transparent;
     opacity: 1;
-    z-index: 2;
-  }
-
-  /* Keep header content visible as image expands */
-  .audio-header-content {
-    pointer-events: none;
-  }
-  .audio-header-content * {
+    transition:
+      left 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+      color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
     pointer-events: auto;
   }
 
+  .testimonial-container:hover {
+    height: 450px;
+  }
+
+  .testimonial-container:hover .testimonial-image-border {
+    width: 100%;
+    transition: width 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-container:hover .testimonial-image {
+    filter: grayscale(1) blur(2px) brightness(0.5);
+    z-index: 1;
+  }
+
+  .testimonial-container:hover .testimonial-content {
+    left: 0;
+    color: white;
+    z-index: 2;
+  }
+
+  .testimonial-container:hover .testimonial-content p {
+    color: white;
+  }
+
+  .testimonial-content h2 {
+    color: white;;
+    margin-bottom: 10px;
+    font-size: 40px;
+    transition: color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .testimonial-content p {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #c7c7c7;
+    transition: color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
   @media (max-width: 900px) {
-    .audio-header-content {
-      padding: 20px;
+    .testimonial-content {
+      left: 40%;
+      width: 60%;
+      padding-left: 3%;
     }
-    .audio-header-image {
+    .testimonial-image {
       width: 40%;
-    }
-    .audio-header-container:hover .audio-header-image {
-      width: 80%;
     }
   }
 
   @media (max-width: 640px) {
-    .audio-header-container {
+    .testimonial-container {
       flex-direction: column;
       height: auto;
     }
-    .audio-header-image {
+    .testimonial-image {
       width: 100%;
       height: 200px;
       background: url('https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/52be550c-82bd-45e3-848e-0b5c7aa4ad5a/jose-leon-6rdPada3jk4-unsplash.jpg?content-type=image%2Fjpeg');
@@ -90,26 +129,42 @@
       background-position: center;
       margin-bottom: 20px;
       border-radius: 20px;
+      transition:
+        width 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+        height 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+        filter 0.6s cubic-bezier(0.77, 0, 0.175, 1);
     }
-    .audio-header-content {
+    .testimonial-content {
+      position: static;
+      width: 100%;
+      left: 0;
       padding: 10px;
       color: #222;
       background: #fff;
       border-radius: 10px;
       opacity: 1 !important;
-      position: static;
       z-index: 2;
       pointer-events: auto;
+      transition:
+        background 0.6s cubic-bezier(0.77, 0, 0.175, 1),
+        color 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .testimonial-content h2 {
+      color: #222;
+    }
+    .testimonial-content p {
+      color: #444;
     }
   }
 </style>
 
-<div class="audio-header-container">
-  <div class="audio-header-image"></div>
-  <div class="audio-header-content">
-    <h2>Testimonial Title</h2>
+<div class="testimonial-container">
+  <div class="testimonial-image-border">
+    <div class="testimonial-image"></div>
+  </div>
+  <div class="testimonial-content">
+    <h2>Providence Church | Frisco, TX</h2>
     <p>
-      This is a sample testimonial description. You can place any text here to describe the testimonial, share a quote, or provide additional context.
-    </p>
+      “It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more. Or maybe you have a creative project to share with the world. Whatever it is, the way you tell your story online can make all the difference.”    </p>
   </div>
 </div>

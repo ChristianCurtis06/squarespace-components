@@ -3,3 +3,12 @@ Possible Header Fonts:
 - Dela Gothic One
 - Proxima Nova
 - Climate Crisis
+
+Header Image Links:
+- Stage: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/300e406c-dfab-46b2-beef-04d970a1d600/elijah-ekdahl-8XxF2kYHIgo-unsplash.jpg?content-type=image%2Fjpeg
+- Audio: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/52be550c-82bd-45e3-848e-0b5c7aa4ad5a/jose-leon-6rdPada3jk4-unsplash.jpg?content-type=image%2Fjpeg
+- Visual: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/311af338-c87c-4d7c-b875-08575b73b0af/possessed-photography-a8y2NqVoVTQ-unsplash.jpg?content-type=image%2Fjpeg
+- Workflow Optimization: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/826da051-c246-4cbe-9df6-76dbe466f794/will-porada-y-6fm55D0nU-unsplash.jpg?content-type=image%2Fjpeg
+- Lighting: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/e33c88c1-9f6e-498f-b4c3-f95e9c7d4890/matt-richmond-3b0FOoASDbI-unsplash.jpg?content-type=image%2Fjpeg
+- Dwell Church: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/1ab9b8ae-9789-4f5c-b95b-c3bb7968dbf7/DwellChurchCOVER.jpg?content-type=image%2Fjpeg
+- Valwood Park Baptist Church: https://images.squarespace-cdn.com/content/680430e27a382307d15cd5b5/df74db84-fe17-4629-b803-c70d39303957/ValwoodParkBaptistChurchCOVER.png?content-type=image%2Fpng
